@@ -32,7 +32,7 @@ public class BracesValidityCheck {
      * @param braces get a text input made only out of braces
      * @return boolean
      */
-    private static boolean isValid(String braces){
+    private static boolean isValid2(String braces){
         boolean result = false;
         for(int i=0;i<braces.length()-1;i++){
             if(braces.charAt(0)!=')' && braces.charAt(0)!='}' && braces.charAt(0)!=']'){  // Check to see if the first character is illegal
@@ -79,6 +79,17 @@ public class BracesValidityCheck {
             }
         }
         return result;
+    }
+
+    // Erase all braces in order of how they pair and if anything remain then it is false
+    private static boolean isValid(String braces){
+        String b = braces;
+        for(int i=0;i<braces.length()/2;i++){
+            b = b.replaceAll("\\(\\)","");
+            b = b.replaceAll("\\[\\]","");
+            b = b.replaceAll("\\{\\}","");
+        }
+        return b.length()==0;
     }
 
     // runs a series of input to check if the method is working correctly.
