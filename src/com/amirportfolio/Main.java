@@ -9,6 +9,7 @@ public class Main {
         Practice routine = new Practice();
 //        routine.commandsFunction();
         routine.executeCommand(args[0], Arrays.copyOfRange(args,1,args.length));
+        RectangleIntoSquare.main(args);
 
     }
 
