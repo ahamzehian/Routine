@@ -6,14 +6,14 @@ public class RectangleIntoSquare {
 
     public static void main(String[] args) {
 
-//        new RectangleIntoSquare().testRun();
-        if(args.length%2==0){
-            for(int i=0;i< args.length;i+=2){
-                getSquares(getInt(args[i]),getInt(args[i+1]));
-            }
-        }else{
-            System.out.println("Missing one input");
-        }
+        new RectangleIntoSquare().testRun();
+//        if(args.length%2==0){
+//            for(int i=0;i< args.length;i+=2){
+//                getSquares(getInt(args[i]),getInt(args[i+1]));
+//            }
+//        }else{
+//            System.out.println("Missing one input");
+//        }
 
     }
 
@@ -26,9 +26,14 @@ public class RectangleIntoSquare {
      * @return int[] result
      */
     public static int[] getSquares(int length, int width){
+        if(length<width){
+            int c = length;
+            length = width;
+            width = c;
+        }
         List<Integer> sqrs = new ArrayList<>();
-        if(length%width==0){
-            sqrs.add(width);
+        if(length%width==0 && width!=1){
+            return new int[]{};
         }else{
             while(width>= 1){
                 int cup = Math.max(length - width, width);
@@ -46,9 +51,9 @@ public class RectangleIntoSquare {
 
     // Check if any modification on the method is matching with what is expected
     public void testRun(){
-        Map<int[], int[]> tests = new HashMap<>(Map.of(new int[]{2,1},new int[]{1},
-                new int[]{5,3},new int[]{3,2,1,1},new int[]{10,5},new int[]{5},
-                new int[]{9,2},new int[]{2,2,2,2,1,1}));
+        Map<int[], int[]> tests = new HashMap<>(Map.of(new int[]{2,1},new int[]{1,1},
+                new int[]{5,3},new int[]{3,2,1,1},new int[]{10,5},new int[]{},
+                new int[]{9,2},new int[]{2,2,2,2,1,1}, new int[]{1,2},new int[]{1,1}));
         for(int[] i: tests.keySet()){
             System.out.println("input: " + Arrays.toString(i) + " | expected: " +
                     Arrays.toString(tests.get(i)) + " | method result: " +
