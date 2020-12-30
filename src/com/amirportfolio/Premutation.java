@@ -15,6 +15,8 @@ public class Premutation {
             System.out.println(singlePermutations(s).toString());
         }
 
+//        new Premutation().testRun();
+
     }
 
     private static List<String> singlePermutations(String s){
@@ -53,8 +55,9 @@ public class Premutation {
     private static void premutation(String str, String ans){
 
         if(str.length() == 0){
-//            System.out.println(ans + " ");
-            setWords(ans);
+            if(!words.contains(ans)){
+                setWords(ans);
+            }
             return;
         }
 
@@ -72,7 +75,7 @@ public class Premutation {
                 "abc",List.of("abc","acb","bac","bca","cba","cab"),
                 "ab",List.of("ab","ba"),
                 "a",List.of("a"),
-                "aab",List.of("aab","aba","aab","aba","baa","baa")
+                "aab",List.of("aab","aba","baa")
         ));
 
         for(String s:tests.keySet()){
