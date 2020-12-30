@@ -2,17 +2,20 @@ package com.amirportfolio;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 
 public class BracesValidityCheck {
     public static void main(String[] args) {
 
-        for(String s:args){
-            if(!isValid(s)){
-                System.out.println(s);
-            }else{
-                System.out.println(s + " braces validity is valid.");
-            }
-        }
+//        for(String s:args){
+//            if(!isValid(s)){
+//                System.out.println(s);
+//            }else{
+//                System.out.println(s + " braces validity is valid.");
+//            }
+//        }
+
+        System.out.println(isValid("({()})"));
 
     }
 
